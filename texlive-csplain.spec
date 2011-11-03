@@ -1,3 +1,9 @@
+# revision 22650
+# category Package
+# catalog-ctan /macros/cstex/base/csplain.tar.gz
+# catalog-date 2009-09-24 20:53:04 +0200
+# catalog-license other-free
+# catalog-version undef
 Name:		texlive-csplain
 Version:	20090924
 Release:	1
@@ -70,6 +76,7 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/base/t1code.tex
 %{_texmfdistdir}/tex/csplain/base/ttimes.tex
 %_texmf_fmtutil_d/csplain
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -80,6 +87,8 @@ TeXLive csplain package.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
 csplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
