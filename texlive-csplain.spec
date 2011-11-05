@@ -14,7 +14,8 @@ License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/csplain.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
-Requires(post):	texlive-tlpkg
+Requires(pre):	texlive-tlpkg
+Requires(post):	texlive-kpathsea
 Requires:	texlive-tex
 Requires:	texlive-csplain.bin
 Conflicts:	texlive-texmf <= 20110705-3
@@ -28,8 +29,8 @@ TeXLive csplain package.
     %_texmf_mktexlsr_pre
 
 %post
-    %_texmf_fmtutil_post
     %_texmf_mktexlsr_post
+    %_texmf_fmtutil_post
 
 %preun
     if [ $1 -eq 0 ]; then
@@ -39,8 +40,8 @@ TeXLive csplain package.
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_fmtutil_post
 	%_texmf_mktexlsr_post
+	%_texmf_fmtutil_post
     fi
 
 #-----------------------------------------------------------------------
