@@ -19,30 +19,17 @@ Requires(post):	texlive-kpathsea
 Requires(post):	texlive-cs
 Requires:	texlive-tex
 Requires:	texlive-csplain.bin
-Conflicts:	texlive-texmf <= 20110705-3
 Requires(post):	texlive-tetex
 
 %description
 TeXLive csplain package.
 
-%pre
-    %_texmf_fmtutil_pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-    %_texmf_fmtutil_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_fmtutil_pre
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
-	%_texmf_fmtutil_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -78,7 +65,6 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/base/t1code.tex
 %{_texmfdistdir}/tex/csplain/base/ttimes.tex
 %_texmf_fmtutil_d/csplain
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -89,8 +75,6 @@ TeXLive csplain package.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
 csplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
