@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-csplain
 Version:	20090924
-Release:	3
+Release:	4
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
@@ -16,10 +16,10 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
+Requires(post):	texlive-tetex
 Requires(post):	texlive-cs
 Requires:	texlive-tex
 Requires:	texlive-csplain.bin
-Requires(post):	texlive-tetex
 
 %description
 TeXLive csplain package.
@@ -77,6 +77,8 @@ mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
+#
+# from csplain:
 csplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
 pdfcsplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
 EOF
