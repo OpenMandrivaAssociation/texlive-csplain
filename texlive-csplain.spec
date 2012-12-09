@@ -82,3 +82,25 @@ cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
 csplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
 pdfcsplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
 EOF
+
+
+%changelog
+* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 20090924-4
++ Revision: 778432
+- Rebuild after tlpobj2spec.pl bug correction.
+
+* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20090924-3
++ Revision: 750657
+- Rebuild to reduce used resources
+
+* Tue Nov 08 2011 Paulo Andrade <pcpa@mandriva.com.br> 20090924-2
++ Revision: 729160
+- Add post requires to avoid fmtutil failure
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20090924-1
++ Revision: 718172
+- texlive-csplain
+- texlive-csplain
+- texlive-csplain
+- texlive-csplain
+
