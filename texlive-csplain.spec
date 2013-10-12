@@ -1,12 +1,12 @@
-# revision 22650
+# revision 31825
 # category Package
 # catalog-ctan /macros/cstex/base/csplain.tar.gz
-# catalog-date 2009-09-24 20:53:04 +0200
+# catalog-date 2012-11-24 09:12:36 +0100
 # catalog-license other-free
 # catalog-version undef
 Name:		texlive-csplain
-Version:	20090924
-Release:	4
+Version:	20121124
+Release:	1
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
@@ -34,25 +34,17 @@ TeXLive csplain package.
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/tex/csplain/base/cavantga.tex
-%{_texmfdistdir}/tex/csplain/base/cbookman.tex
-%{_texmfdistdir}/tex/csplain/base/chelvet.tex
-%{_texmfdistdir}/tex/csplain/base/cncent.tex
-%{_texmfdistdir}/tex/csplain/base/cpalatin.tex
 %{_texmfdistdir}/tex/csplain/base/csenc-k.tex
 %{_texmfdistdir}/tex/csplain/base/csenc-p.tex
 %{_texmfdistdir}/tex/csplain/base/csenc-u.tex
 %{_texmfdistdir}/tex/csplain/base/csenc-w.tex
 %{_texmfdistdir}/tex/csplain/base/cseplain.ini
 %{_texmfdistdir}/tex/csplain/base/csfonts.tex
+%{_texmfdistdir}/tex/csplain/base/csfontsm.tex
 %{_texmfdistdir}/tex/csplain/base/csplain-utf8.ini
 %{_texmfdistdir}/tex/csplain/base/csplain.ini
-%{_texmfdistdir}/tex/csplain/base/ctimes.tex
-%{_texmfdistdir}/tex/csplain/base/czech.sty
 %{_texmfdistdir}/tex/csplain/base/czhyphen.ex
 %{_texmfdistdir}/tex/csplain/base/czhyphen.tex
-%{_texmfdistdir}/tex/csplain/base/dcfonts.tex
-%{_texmfdistdir}/tex/csplain/base/ecfonts.tex
 %{_texmfdistdir}/tex/csplain/base/extcode.tex
 %{_texmfdistdir}/tex/csplain/base/fonttabs.tex
 %{_texmfdistdir}/tex/csplain/base/hyphen.ex
@@ -61,9 +53,40 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/base/plaina4.tex
 %{_texmfdistdir}/tex/csplain/base/skhyphen.ex
 %{_texmfdistdir}/tex/csplain/base/skhyphen.tex
-%{_texmfdistdir}/tex/csplain/base/slovak.sty
 %{_texmfdistdir}/tex/csplain/base/t1code.tex
-%{_texmfdistdir}/tex/csplain/base/ttimes.tex
+%{_texmfdistdir}/tex/csplain/base/t1enc-u.tex
+%{_texmfdistdir}/tex/csplain/base/ucode.tex
+%{_texmfdistdir}/tex/csplain/fonts/ams-math.tex
+%{_texmfdistdir}/tex/csplain/fonts/cavantga.tex
+%{_texmfdistdir}/tex/csplain/fonts/cbookman.tex
+%{_texmfdistdir}/tex/csplain/fonts/chars-8z.tex
+%{_texmfdistdir}/tex/csplain/fonts/chelvet.tex
+%{_texmfdistdir}/tex/csplain/fonts/cncent.tex
+%{_texmfdistdir}/tex/csplain/fonts/cpalatin.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-adventor.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-all.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-antt.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-arev.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-bera.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-bonum.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-charter.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-cursor.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-heros.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-pagella.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-polta.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-schola.tex
+%{_texmfdistdir}/tex/csplain/fonts/cs-termes.tex
+%{_texmfdistdir}/tex/csplain/fonts/ctimes.tex
+%{_texmfdistdir}/tex/csplain/fonts/dcfonts.tex
+%{_texmfdistdir}/tex/csplain/fonts/ecfonts.tex
+%{_texmfdistdir}/tex/csplain/fonts/exchars.tex
+%{_texmfdistdir}/tex/csplain/fonts/lmfonts.tex
+%{_texmfdistdir}/tex/csplain/fonts/luafonts.tex
+%{_texmfdistdir}/tex/csplain/fonts/tx-math.tex
+%{_texmfdistdir}/tex/csplain/fonts/unifam.tex
+%{_texmfdistdir}/tex/csplain/opmac/opmac-xetex.tex
+%{_texmfdistdir}/tex/csplain/opmac/opmac.tex
+%{_texmfdistdir}/tex/csplain/opmac/pdfuni.tex
 %_texmf_fmtutil_d/csplain
 
 #-----------------------------------------------------------------------
@@ -79,28 +102,8 @@ mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
 #
 # from csplain:
-csplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
-pdfcsplain pdftex - -etex -translate-file=cp227.tcx csplain.ini
+csplain pdftex - -etex -enc csplain-utf8.ini
+pdfcsplain pdftex - -etex -enc csplain-utf8.ini
+pdfcsplain xetex - -etex csplain.ini
+pdfcsplain luatex - -etex csplain.ini
 EOF
-
-
-%changelog
-* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 20090924-4
-+ Revision: 778432
-- Rebuild after tlpobj2spec.pl bug correction.
-
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20090924-3
-+ Revision: 750657
-- Rebuild to reduce used resources
-
-* Tue Nov 08 2011 Paulo Andrade <pcpa@mandriva.com.br> 20090924-2
-+ Revision: 729160
-- Add post requires to avoid fmtutil failure
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20090924-1
-+ Revision: 718172
-- texlive-csplain
-- texlive-csplain
-- texlive-csplain
-- texlive-csplain
-
