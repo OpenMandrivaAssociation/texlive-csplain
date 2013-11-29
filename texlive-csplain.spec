@@ -1,4 +1,4 @@
-# revision 31825
+# revision 32253
 # category Package
 # catalog-ctan /macros/cstex/base/csplain.tar.gz
 # catalog-date 2012-11-24 09:12:36 +0100
@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-csplain
 Version:	20121124
-Release:	1
+Release:	2
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
@@ -50,12 +50,14 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/base/hyphen.ex
 %{_texmfdistdir}/tex/csplain/base/hyphen.lan
 %{_texmfdistdir}/tex/csplain/base/il2code.tex
+%{_texmfdistdir}/tex/csplain/base/luaplain.ini
 %{_texmfdistdir}/tex/csplain/base/plaina4.tex
 %{_texmfdistdir}/tex/csplain/base/skhyphen.ex
 %{_texmfdistdir}/tex/csplain/base/skhyphen.tex
 %{_texmfdistdir}/tex/csplain/base/t1code.tex
 %{_texmfdistdir}/tex/csplain/base/t1enc-u.tex
 %{_texmfdistdir}/tex/csplain/base/ucode.tex
+%{_texmfdistdir}/tex/csplain/base/xeplain.ini
 %{_texmfdistdir}/tex/csplain/fonts/ams-math.tex
 %{_texmfdistdir}/tex/csplain/fonts/cavantga.tex
 %{_texmfdistdir}/tex/csplain/fonts/cbookman.tex
