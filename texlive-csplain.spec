@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-csplain
 Version:	20121124
-Release:	5
+Release:	6
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
