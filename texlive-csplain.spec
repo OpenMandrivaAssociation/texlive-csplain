@@ -1,4 +1,4 @@
-# revision 32253
+# revision 34304
 # category Package
 # catalog-ctan /macros/cstex/base/csplain.tar.gz
 # catalog-date 2012-11-24 09:12:36 +0100
@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-csplain
 Version:	20121124
-Release:	7
+Release:	8
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
@@ -79,6 +79,7 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/fonts/cs-schola.tex
 %{_texmfdistdir}/tex/csplain/fonts/cs-termes.tex
 %{_texmfdistdir}/tex/csplain/fonts/ctimes.tex
+%{_texmfdistdir}/tex/csplain/fonts/cyrchars.tex
 %{_texmfdistdir}/tex/csplain/fonts/dcfonts.tex
 %{_texmfdistdir}/tex/csplain/fonts/ecfonts.tex
 %{_texmfdistdir}/tex/csplain/fonts/exchars.tex
@@ -86,6 +87,9 @@ TeXLive csplain package.
 %{_texmfdistdir}/tex/csplain/fonts/luafonts.tex
 %{_texmfdistdir}/tex/csplain/fonts/tx-math.tex
 %{_texmfdistdir}/tex/csplain/fonts/unifam.tex
+%{_texmfdistdir}/tex/csplain/opmac/opmac-bib-iso690.tex
+%{_texmfdistdir}/tex/csplain/opmac/opmac-bib-simple.tex
+%{_texmfdistdir}/tex/csplain/opmac/opmac-bib.tex
 %{_texmfdistdir}/tex/csplain/opmac/opmac-xetex.tex
 %{_texmfdistdir}/tex/csplain/opmac/opmac.tex
 %{_texmfdistdir}/tex/csplain/opmac/pdfuni.tex
