@@ -1,5 +1,5 @@
 Name:		texlive-csplain
-Version:	20171104
+Version:	20180105
 Release:	1
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
