@@ -3,7 +3,7 @@ Version:	67934
 Release:	1
 Summary:	Plain TeX support for Czech/Slovak typesetting
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
+URL:		https://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/csplain.r%{version}.tar.xz
 BuildArch:	noarch
