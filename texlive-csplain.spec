@@ -1,51 +1,45 @@
-Name:		texlive-csplain
-Version:	67934
-Release:	1
-Summary:	Plain TeX support for Czech/Slovak typesetting
+%global tl_name csplain
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	Mar.2022
+Release:	%{tl_revision}.1
+Summary:	Plain TeX multilanguage support
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/cstex/base/csplain.tar.gz
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/csplain.r%{version}.tar.xz
+License:	other-free
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/csplain.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
-Requires(post):	texlive-tetex
-Requires(post):	texlive-cs
-Requires:	texlive-tex
-Requires:	texlive-csplain.bin
+%texlive_base_requires
+Requires:	texlive(cm)
+Requires:	texlive(cs)
+Requires:	texlive(csplain.bin)
+Requires:	texlive(enctex)
+Requires:	texlive(hyph-utf8)
+Requires:	texlive(hyphen-base)
+Requires:	texlive(luatex)
+Requires:	texlive(luatex85)
+Requires:	texlive(pdftex)
+Requires:	texlive(plain)
+Requires:	texlive(tex)
+Requires:	texlive(tex-ini-files)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive csplain package.
+CSplain is a small extension of basic Plain TeX macros, the formats
+csplain and pdfcsplain can be generated. It supports: hyphenation of
+words for 50+ languages, simple and powerful font loading system
+(various sizes of fonts), TeX, pdfTeX, XeTeX and LuaTeX engines, math
+fonts simply loaded with full amstex-like features, three internal
+encodings (IL2 for Czech/Slovak languages, T1 for many languages with
+latin alphabet and Unicode in new TeX engines), natural UTF-8 input in
+pdfTeX using encTeX without any active characters, Czech and Slovak
+special typesetting features. An important part of the package is OPmac,
+which implements most of LaTeX's features (sectioning, font selection,
+color, hyper reference and urls, bibliography, index, toc, tables,etc.)
+by Plain TeX macros. The OPmac macros can generate and bibliography
+without any external program.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/csplain
-%{_texmf_fmtutil_d}/csplain
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf-dist %{buildroot}%{_datadir}
-mkdir -p %{buildroot}%{_texmf_fmtutil_d}
-cat > %{buildroot}%{_texmf_fmtutil_d}/csplain <<EOF
-#
-# from csplain:
-csplain pdftex - -etex -enc csplain-utf8.ini
-pdfcsplain pdftex - -etex -enc csplain-utf8.ini
-pdfcsplain xetex - -etex csplain.ini
-pdfcsplain luatex - -etex csplain.ini
-EOF
