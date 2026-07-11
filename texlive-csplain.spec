@@ -12,8 +12,6 @@ License:	other-free
 Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/csplain.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-BuildRequires:	texlive-tlpkg
-%texlive_base_requires
 Requires:	texlive(cm)
 Requires:	texlive(cs)
 Requires:	texlive(csplain.bin)
