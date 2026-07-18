@@ -1,5 +1,6 @@
 %global tl_name csplain
 %global tl_revision 79618
+%global tl_bin_links csplain:pdftex luacsplain:luatex pdfcsplain:pdftex
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -25,6 +26,8 @@ Requires:	texlive(plain)
 Requires:	texlive(tex)
 Requires:	texlive(tex-ini-files)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 CSplain is a small extension of basic Plain TeX macros, the formats
